@@ -25,7 +25,7 @@ app.use("/users", usersRouter);
 
 app.use("/zip", function(req, res, next) {
 	if (req.query.filePath) {
-		const command = "gzip -k " + req.query.filePath;
+		const command = "gzip -fk " + req.query.filePath;
 		exec(command, function(err, data) {
 			if (err) {
 				res.render("zip", {
